@@ -4,777 +4,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>IPTV PREMIUM</title>
-
+    <title>Zinoo Live - IPTV Premium</title>
+    <meta name="description" content="Zinoo Live - أفضل خدمة IPTV بجودة عالية مع أكثر من 20 ألف قناة وخدمات تقنية متنوعة.">
+    <link rel="icon" href="images/assets/shortcuticon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            scroll-behavior:smooth;
-        }
-
-        body{
-            font-family:'Cairo',sans-serif;
-            background:#020617;
-            color:white;
-            overflow-x:hidden;
-        }
-
-        /* Scroll Bar */
-
-        ::-webkit-scrollbar{
-            width:8px;
-        }
-
-        ::-webkit-scrollbar-thumb{
-            background:#2248c5;
-            border-radius:20px;
-        }
-
-        /* Background Glow */
-
-        body::before{
-            content:'';
-            position:fixed;
-            width:600px;
-            height:600px;
-            background:#22c55e20;
-            filter:blur(120px);
-            top:-200px;
-            left:-200px;
-            z-index:-1;
-        }
-
-        body::after{
-            content:'';
-            position:fixed;
-            width:500px;
-            height:500px;
-            background:#3b82f620;
-            filter:blur(120px);
-            bottom:-200px;
-            right:-200px;
-            z-index:-1;
-        }
-
-        /* Header */
-
-        header{
-            position:fixed;
-            top:0;
-            width:100%;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:20px 8%;
-            background:rgba(15,23,42,0.75);
-            backdrop-filter:blur(12px);
-            border-bottom:1px solid rgba(255,255,255,0.05);
-            z-index:1000;
-        }
-
-        .logo{
-            font-size:32px;
-            font-weight:800;
-            color:#22c55e;
-            letter-spacing:2px;
-        }
-
-        nav{
-            display:flex;
-            gap:25px;
-        }
-
-        nav a{
-            color:white;
-            text-decoration:none;
-            font-size:17px;
-            transition:0.3s;
-        }
-
-        nav a:hover{
-            color:#22c55e;
-        }
-
-        /* Hero */
-
-        .hero{
-            min-height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            padding:120px 20px;
-        }
-
-        .hero-content{
-            max-width:900px;
-        }
-
-        .hero h1{
-            font-size:72px;
-            line-height:1.2;
-            margin-bottom:25px;
-        }
-
-        .hero span{
-            color:#2232c5;
-        }
-
-        .hero p{
-            color:#cbd5e1;
-            font-size:24px;
-            line-height:1.8;
-            margin-bottom:45px;
-        }
-
-        .hero-buttons{
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            flex-wrap:wrap;
-        }
-
-        .btn{
-            padding:16px 38px;
-            border-radius:14px;
-            text-decoration:none;
-            font-size:18px;
-            font-weight:700;
-            transition:0.3s;
-        }
-
-        .btn-primary{
-            background:#22c55e;
-            color:white;
-            box-shadow:0 0 25px #22c55e60;
-        }
-
-        .btn-primary:hover{
-            transform:translateY(-5px);
-        }
-
-        .btn-secondary{
-            border:1px solid #334155;
-            color:white;
-        }
-
-        .btn-secondary:hover{
-            background:#1e293b;
-        }
-
-        /* Stats */
-
-        .stats{
-            padding:40px 8%;
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-            gap:25px;
-        }
-
-        .stat{
-            background:#0f172a;
-            border:1px solid #1e293b;
-            padding:35px;
-            border-radius:20px;
-            text-align:center;
-        }
-
-        .stat h2{
-            font-size:42px;
-            color:#22c55e;
-            margin-bottom:10px;
-        }
-
-        .stat p{
-            color:#94a3b8;
-        }
-
-        /* Section */
-
-        section{
-            padding:100px 8%;
-        }
-
-        .section-title{
-            text-align:center;
-            font-size:48px;
-            margin-bottom:20px;
-        }
-
-        .section-sub{
-            text-align:center;
-            color:#94a3b8;
-            margin-bottom:60px;
-            font-size:18px;
-        }
-
-        /* Features */
-
-        .features-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-        }
-
-        .feature{
-            background:#0f172a;
-            padding:35px;
-            border-radius:22px;
-            border:1px solid #1e293b;
-            transition:0.3s;
-        }
-
-        .feature:hover{
-            transform:translateY(-10px);
-            border-color:#22c55e;
-        }
-
-        .feature-icon{
-            font-size:50px;
-            margin-bottom:20px;
-        }
-
-        .feature h3{
-            margin-bottom:15px;
-            font-size:26px;
-        }
-
-        .feature p{
-            color:#94a3b8;
-            line-height:1.8;
-        }
-
-        /* Packages */
-
-        .cards{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-            gap:30px;
-        }
-
-        .card{
-            background:linear-gradient(180deg,#0f172a,#111827);
-            padding:40px;
-            border-radius:25px;
-            border:1px solid #1e293b;
-            position:relative;
-            overflow:hidden;
-            transition:0.4s;
-        }
-
-        .card:hover{
-            transform:translateY(-12px);
-            border-color:#22c55e;
-        }
-
-        .popular{
-            border:2px solid #22c55e;
-            transform:scale(1.03);
-        }
-
-        .tag{
-            position:absolute;
-            top:18px;
-            left:18px;
-            background:#22c55e;
-            padding:8px 14px;
-            border-radius:12px;
-            font-size:14px;
-            font-weight:bold;
-        }
-
-        .card h3{
-            font-size:34px;
-            margin-bottom:20px;
-        }
-
-        .price{
-            font-size:55px;
-            color:#22c55e;
-            margin-bottom:25px;
-            font-weight:800;
-        }
-
-        .card ul{
-            list-style:none;
-            margin-bottom:35px;
-        }
-
-        .card ul li{
-            padding:12px 0;
-            color:#cbd5e1;
-            border-bottom:1px solid #1e293b;
-        }
-
-        .buy{
-            display:block;
-            text-align:center;
-            background:#2248c5;
-            color:white;
-            text-decoration:none;
-            padding:16px;
-            border-radius:14px;
-            font-weight:bold;
-            transition:0.3s;
-        }
-
-        .buy:hover{
-            background:#16a34a;
-        }
-
-        /* Testimonials */
-
-        .testimonials{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-            gap:25px;
-        }
-
-        .testimonial{
-            background:#0f172a;
-            padding:35px;
-            border-radius:22px;
-            border:1px solid #1e293b;
-        }
-
-        .testimonial p{
-            color:#cbd5e1;
-            line-height:1.9;
-            margin-bottom:20px;
-        }
-
-        .testimonial h4{
-            color:#22c55e;
-        }
-
-        /* FAQ */
-
-        .faq{
-            max-width:900px;
-            margin:auto;
-        }
-
-        details{
-            background:#0f172a;
-            margin-bottom:20px;
-            padding:22px;
-            border-radius:18px;
-            border:1px solid #1e293b;
-        }
-
-        summary{
-            cursor:pointer;
-            font-size:20px;
-            font-weight:bold;
-        }
-
-        details p{
-            margin-top:15px;
-            color:#cbd5e1;
-            line-height:1.8;
-        }
-
-        /* Contact */
-
-        .contact-box{
-            background:linear-gradient(180deg,#0f172a,#111827);
-            padding:60px;
-            border-radius:30px;
-            text-align:center;
-            border:1px solid #1e293b;
-        }
-
-        .contact-box h2{
-            font-size:48px;
-            margin-bottom:20px;
-        }
-
-        .contact-box p{
-            color:#94a3b8;
-            margin-bottom:35px;
-            font-size:18px;
-        }
-
-        /* Footer */
-
-        footer{
-            padding:35px;
-            text-align:center;
-            border-top:1px solid #1e293b;
-            color:#94a3b8;
-            background:#020617;
-        }
-
-        /* Animation */
-
-        .fade{
-            animation:fadeUp 1s ease;
-        }
-
-        @keyframes fadeUp{
-            from{
-                opacity:0;
-                transform:translateY(30px);
-            }
-
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
-        }
-
-        /* Responsive */
-
-        @media(max-width:768px){
-
-            nav{
-                display:none;
-            }
-
-            .hero h1{
-                font-size:42px;
-            }
-
-            .hero p{
-                font-size:18px;
-            }
-
-            .section-title{
-                font-size:34px;
-            }
-
-            .contact-box{
-                padding:35px 20px;
-            }
-
-        }
-
-    </style>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Header -->
+    <!-- Primary Nav -->
+    <header class="primary-nav">
+        <a href="#" class="nav-logo">
+            <img src="logo.png" alt="Zinoo Live">
+        </a>
 
-    <header>
-
-       <div class="logo">
-    <img src="logo.png" alt="Zinoo Live Logo" style="height:70px;">
-</div>
-
-        <nav>
-            <a href="#">الرئيسية</a>
-            <a href="#features">المميزات</a>
+        <nav class="nav-links" id="navLinks">
+            <a href="#services">خدماتنا</a>
             <a href="#packages">الباقات</a>
             <a href="#faq">الأسئلة</a>
-            <a href="#contact">تواصل</a>
+            <a href="https://wa.me/+212687339572/?text=START" class="nav-cta">تواصل معنا</a>
         </nav>
 
+        <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+            <span></span>
+        </button>
     </header>
 
     <!-- Hero -->
-
     <section class="hero">
-
-        <div class="hero-content fade">
-
-            <h1>
-                أفضل تجربة <span>IPTV</span> بدون تقطيع
-            </h1>
-
-            <p>
-                أكثر من 20K قناة عالمية + أحدث الأفلام والمسلسلات بجودة عالية
-                ودعم لجميع الأجهزة.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="https://wa.me/+212687339572/?text=START""
-                    class="btn btn-primary">
-                    اطلب الآن
-                </a>
-
-                <a href="#packages"
-                    class="btn btn-secondary">
-                    مشاهدة الباقات
-                </a>
-
+        <div class="hero-inner">
+            <div class="hero-text fade-up">
+                <h1>أفضل تجربة <span class="accent">IPTV</span> بدون تقطيع</h1>
+                <p>
+                    أكثر من 20,000 قناة عالمية مع أحدث الأفلام والمسلسلات بجودة 4K.
+                    دعم لجميع الأجهزة مع خدمة عملاء على مدار الساعة.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/+212687339572/?text=START" class="btn-primary btn-lg">
+                        اطلب اشتراكك الآن
+                    </a>
+                    <a href="#packages" class="btn-secondary btn-lg">
+                        استعرض الباقات
+                    </a>
+                </div>
             </div>
-
+            <div class="hero-image fade-up">
+                <img src="logo.png" alt="Zinoo Live IPTV">
+            </div>
         </div>
-
     </section>
 
-    <!-- Stats -->
-
-    <div class="stats">
-
-        <div class="stat">
-            <h2>20K+</h2>
-            <p>قناة عالمية</p>
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>+20K</h3>
+                <p>قناة عالمية</p>
+            </div>
+            <div class="stat-item">
+                <h3>4K</h3>
+                <p>جودة فائقة</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>دعم فني متواصل</p>
+            </div>
+            <div class="stat-item">
+                <h3>99%</h3>
+                <p>استقرار السيرفر</p>
+            </div>
         </div>
-
-        <div class="stat">
-            <h2>4K</h2>
-            <p>جودة فائقة</p>
-        </div>
-
-        <div class="stat">
-            <h2>24/7</h2>
-            <p>دعم فني</p>
-        </div>
-
-        <div class="stat">
-            <h2>99%</h2>
-            <p>استقرار السيرفر</p>
-        </div>
-
     </div>
 
-    <!-- Features -->
-
-    <section id="features">
-
-        <h2 class="section-title">لماذا نحن ؟</h2>
-
-        <p class="section-sub">
-            تجربة مشاهدة سريعة ومستقرة على جميع الأجهزة
-        </p>
-
-        <div class="features-grid">
-
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>سرعة عالية</h3>
-                <p>
-                    سيرفرات قوية بدون تقطيع أثناء المباريات والأفلام.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">📺</div>
-                <h3>جميع القنوات</h3>
-                <p>
-                    قنوات رياضية، عربية، أجنبية، أفلام ومسلسلات.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🛡️</div>
-                <h3>حماية قوية</h3>
-                <p>
-                    استقرار عالي وتحديثات مستمرة للسيرفرات.
-                </p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">📱</div>
-                <h3>كل الأجهزة</h3>
-                <p>
-                    يدعم Smart TV و Android و iPhone و PC.
-                </p>
-            </div>
-
+    <!-- Services -->
+    <section class="section" id="services">
+        <div class="section-header fade-up">
+            <h2>خدماتنا</h2>
+            <p>نقدم مجموعة متنوعة من الخدمات التقنية والرقمية لتلبية احتياجاتك</p>
         </div>
+        <div class="services-grid">
+            <div class="service-card fade-up">
+                <div class="service-icon">
+                    <img src="images/services/tech.JPEG" alt="خدمات تقنية">
+                </div>
+                <h3>حلول تقنية</h3>
+                <p>خدمات تقنية متكاملة تشمل البرمجيات والأنظمة الذكية</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="service-icon">
+                    <img src="images/services/phone.JPEG" alt="إصلاح الهواتف">
+                </div>
+                <h3>صيانة الهواتف</h3>
+                <p>إصلاح وصيانة جميع أنواع الهواتف الذكية باحترافية</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="service-icon">
+                    <img src="images/services/home.JPEG" alt="خدمات منزلية">
+                </div>
+                <h3>خدمات منزلية</h3>
+                <p>تركيب وصيانة الأجهزة المنزلية والأنظمة الإلكترونية</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="service-icon">
+                    <img src="images/services/bicycle.JPEG" alt="توصيل سريع">
+                </div>
+                <h3>توصيل سريع</h3>
+                <p>خدمة توصيل سريعة وموثوقة لجميع طلباتك</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- IPTV Feature Row -->
+    <section class="section section-alt">
+        <div class="feature-row fade-up">
+            <div class="feature-text">
+                <h3>جميع القنوات العالمية في مكان واحد</h3>
+                <p>
+                    استمتع بأكثر من 20,000 قناة تلفزيونية من جميع أنحاء العالم.
+                    قنوات رياضية، ترفيهية، إخبارية، وأفلام بجودة تصل إلى 4K Ultra HD.
+                    متوافق مع Smart TV, Android, iPhone, وأجهزة الكمبيوتر.
+                </p>
+                <a href="https://wa.me/+212687339572/?text=START" class="btn-primary btn-lg">جرّب الآن</a>
+            </div>
+            <div class="feature-media">
+                <img src="logo.jpg" alt="Zinoo Live IPTV">
+            </div>
+        </div>
     </section>
 
     <!-- Packages -->
-
-    <section id="packages">
-
-        <h2 class="section-title">الباقات</h2>
-
-        <p class="section-sub">
-            اختر الباقة المناسبة لك
-        </p>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>شهر</h3>
-
-                <div class="price">39DH</div>
-
-                <ul>
-                    <li>20000+ قناة</li>
-                    <li>أفلام ومسلسلات</li>
+    <section class="section" id="packages">
+        <div class="section-header fade-up">
+            <h2>باقات الاشتراك</h2>
+            <p>اختر الباقة المناسبة لك واستمتع بتجربة مشاهدة لا مثيل لها</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-up">
+                <h3>شهر واحد</h3>
+                <div class="pricing-price">39 <span class="currency">DH</span></div>
+                <ul class="pricing-features">
+                    <li>+20,000 قناة عالمية</li>
+                    <li>أفلام ومسلسلات حصرية</li>
                     <li>جودة HD / 4K</li>
                     <li>دعم فني</li>
                 </ul>
-
-                <a href="https://wa.me/+212687339572/?text=(39DH)باقة شهر واحد""
-                    class="buy">
-                    شراء الآن
-                </a>
-
+                <a href="https://wa.me/+212687339572/?text=(39DH)%D8%A8%D8%A7%D9%82%D8%A9%20%D8%B4%D9%87%D8%B1%20%D9%88%D8%A7%D8%AD%D8%AF" class="btn-primary">اشترك الآن</a>
             </div>
 
-            <div class="card popular">
-
-                <div class="tag">الأفضل</div>
-
+            <div class="pricing-card popular fade-up">
+                <div class="pricing-tag">الأفضل</div>
                 <h3>6 أشهر</h3>
-
-                <div class="price">199DH</div>
-
-                <ul>
+                <div class="pricing-price">199 <span class="currency">DH</span></div>
+                <ul class="pricing-features">
                     <li>جميع القنوات العالمية</li>
-                    <li>سيرفر سريع</li>
-                    <li>بدون تقطيع</li>
-                    <li>دعم VIP</li>
+                    <li>سيرفر فائق السرعة</li>
+                    <li>بدون أي تقطيع</li>
+                    <li>دعم VIP مباشر</li>
                 </ul>
-
-                <a href="https://wa.me/+212687339572/?text=باقة 6 أشهر (199DH)"
-                    class="buy">
-                    شراء الآن
-                </a>
-
+                <a href="https://wa.me/+212687339572/?text=%D8%A8%D8%A7%D9%82%D8%A9%206%20%D8%A3%D8%B4%D9%87%D8%B1%20(199DH)" class="btn-primary">اشترك الآن</a>
             </div>
 
-            <div class="card">
-
-                <h3>سنة</h3>
-
-                <div class="price">300DH</div>
-
-                <ul>
-                    <li>أفضل قيمة</li>
+            <div class="pricing-card fade-up">
+                <h3>سنة كاملة</h3>
+                <div class="pricing-price">300 <span class="currency">DH</span></div>
+                <ul class="pricing-features">
+                    <li>أفضل قيمة مقابل السعر</li>
                     <li>4K Ultra HD</li>
-                    <li>تحديثات مجانية</li>
-                    <li>دعم كامل</li>
+                    <li>تحديثات مجانية مستمرة</li>
+                    <li>دعم فني كامل 24/7</li>
                 </ul>
-
-                <a href="https://wa.me/+212687339572/?text=باقة 12 شهر (300DH)"
-                    class="buy">
-                    شراء الآن
-                </a>
-
+                <a href="https://wa.me/+212687339572/?text=%D8%A8%D8%A7%D9%82%D8%A9%2012%20%D8%B4%D9%87%D8%B1%20(300DH)" class="btn-primary">اشترك الآن</a>
             </div>
-
         </div>
-
     </section>
 
     <!-- Testimonials -->
-
-    <section>
-
-        <h2 class="section-title">آراء العملاء</h2>
-
-        <p class="section-sub">
-            بعض تقييمات مستخدمينا
-        </p>
-
-        <div class="testimonials">
-
-            <div class="testimonial">
-                <p>
-                    أفضل اشتراك IPTV جربته، جودة ممتازة ولا يوجد تقطيع.
-                </p>
-
-                <h4>★★★★★</h4>
-            </div>
-
-            <div class="testimonial">
-                <p>
-                    الدعم الفني سريع جداً وتم التفعيل خلال دقائق.
-                </p>
-
-                <h4>★★★★★</h4>
-            </div>
-
-            <div class="testimonial">
-                <p>
-                    القنوات الرياضية تعمل بشكل رائع حتى أثناء المباريات.
-                </p>
-
-                <h4>★★★★★</h4>
-            </div>
-
+    <section class="section">
+        <div class="section-header fade-up">
+            <h2>آراء العملاء</h2>
+            <p>ماذا يقول مستخدمونا عن خدماتنا</p>
         </div>
-
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-up">
+                <p>أفضل اشتراك IPTV جربته على الإطلاق. الجودة ممتازة ولا يوجد أي تقطيع حتى أثناء المباريات الكبرى.</p>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <p>الدعم الفني سريع جدا وتم التفعيل خلال دقائق. تجربة رائعة من البداية للنهاية.</p>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <p>القنوات الرياضية تعمل بشكل رائع حتى أثناء المباريات الكبرى. أنصح الجميع بالتجربة.</p>
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+        </div>
     </section>
 
     <!-- FAQ -->
-
-    <section id="faq">
-
-        <h2 class="section-title">الأسئلة الشائعة</h2>
-
-        <div class="faq">
-
-            <details>
-                <summary>
-                    هل الاشتراك يعمل على Smart TV ؟
-                </summary>
-
-                <p>
-                    نعم، يدعم جميع أجهزة Smart TV و Android و iPhone و PC.
-                </p>
-            </details>
-
-            <details>
-                <summary>
-                    هل يوجد تقطيع أثناء المباريات ؟
-                </summary>
-
-                <p>
-                    السيرفرات مستقرة وسريعة جداً لتقليل التقطيع.
-                </p>
-            </details>
-
-            <details>
-                <summary>
-                    كم مدة التفعيل ؟
-                </summary>
-
-                <p>
-                    يتم التفعيل غالباً خلال دقائق بعد التواصل.
-                </p>
-            </details>
-
+    <section class="section section-alt" id="faq">
+        <div class="section-header fade-up">
+            <h2>الأسئلة الشائعة</h2>
         </div>
-
+        <div class="faq-list">
+            <details class="faq-item fade-up">
+                <summary>هل الاشتراك يعمل على Smart TV؟</summary>
+                <p class="faq-answer">نعم، يدعم جميع أجهزة Smart TV بما فيها Samsung و LG و Android TV، بالإضافة إلى أجهزة Android و iPhone و PC.</p>
+            </details>
+            <details class="faq-item fade-up">
+                <summary>هل يوجد تقطيع أثناء المباريات؟</summary>
+                <p class="faq-answer">سيرفراتنا مستقرة وسريعة جدا مع نسبة استقرار تتجاوز 99%. نحرص على توفير أفضل تجربة مشاهدة خاصة أثناء الأحداث الرياضية الكبرى.</p>
+            </details>
+            <details class="faq-item fade-up">
+                <summary>كم مدة التفعيل؟</summary>
+                <p class="faq-answer">يتم التفعيل فوريا بعد التواصل معنا عبر واتساب. في أغلب الحالات يتم التفعيل خلال دقائق قليلة.</p>
+            </details>
+            <details class="faq-item fade-up">
+                <summary>هل يمكنني تجربة الخدمة قبل الاشتراك؟</summary>
+                <p class="faq-answer">نعم، تواصل معنا عبر واتساب وسنوفر لك فترة تجريبية لتجربة جودة الخدمة قبل الاشتراك.</p>
+            </details>
+        </div>
     </section>
 
-    <!-- Contact -->
-
-    <section id="contact">
-
-        <div class="contact-box">
-
-            <h2>ابدأ الآن</h2>
-
-            <p>
-                تواصل معنا عبر واتساب للحصول على اشتراكك فوراً
-            </p>
-
-            <a href="https://wa.me/+212687339572/?text=START"
-                class="btn btn-primary">
-                فتح واتساب
-            </a>
-
-        </div>
-
+    <!-- CTA Strip -->
+    <section class="cta-strip">
+        <h2>ابدأ تجربتك الآن</h2>
+        <p>تواصل معنا عبر واتساب للحصول على اشتراكك فورا</p>
+        <a href="https://wa.me/+212687339572/?text=START" class="btn-primary">
+            افتح واتساب
+        </a>
     </section>
 
     <!-- Footer -->
-
-    <footer>
-        © 2025 IPTV PREMIUM - جميع الحقوق محفوظة
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="logo.png" alt="Zinoo Live">
+                <p>Zinoo Live - خدمات رقمية متكاملة تشمل IPTV بجودة عالية وخدمات تقنية متنوعة.</p>
+            </div>
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <a href="#services">خدماتنا</a>
+                <a href="#packages">الباقات</a>
+                <a href="#merchandise">المتجر</a>
+                <a href="#faq">الأسئلة الشائعة</a>
+            </div>
+            <div class="footer-col">
+                <h4>خدماتنا</h4>
+                <a href="https://wa.me/+212687339572/?text=IPTV">اشتراك IPTV</a>
+                <a href="https://wa.me/+212687339572/?text=صيانة">صيانة الهواتف</a>
+                <a href="https://wa.me/+212687339572/?text=خدمات">خدمات تقنية</a>
+                <a href="https://wa.me/+212687339572/?text=توصيل">توصيل سريع</a>
+            </div>
+            <div class="footer-col">
+                <h4>تواصل معنا</h4>
+                <a href="https://wa.me/+212687339572">واتساب: 0687339572</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Zinoo Live - جميع الحقوق محفوظة
+        </div>
     </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+    (function() {
+        var els = document.querySelectorAll('.fade-up');
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function(el) { el.classList.add('visible'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        els.forEach(function(el) { observer.observe(el); });
+
+        // Mobile nav toggle
+        var toggle = document.getElementById('navToggle');
+        var links = document.getElementById('navLinks');
+        if (toggle && links) {
+            toggle.addEventListener('click', function() {
+                links.classList.toggle('open');
+            });
+            links.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    links.classList.remove('open');
+                });
+            });
+        }
+    })();
+    </script>
 
 </body>
 
